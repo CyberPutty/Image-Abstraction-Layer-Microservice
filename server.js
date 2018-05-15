@@ -27,16 +27,35 @@ app.use(express.static('public'));
 app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
-app.get("/imagesearch/:image",function(request,response){
+app.get("/imagesearch/type=:image,offset",function(request,response){
 const imageUrl= request.params.image;
+ // offset=
+// search=
+// count=? better word for count. 
+Image.findOne(imageUrl,function(err,data){
+if (err) console.log(err);
   
-Image.findOne(imageUrl,function(err,dat){})  
+  if(data){
+  // get image
   
+  }
+  else {
+// create data
+    
+    const search= new Image({
+    
+    
+    
+    });
+    
+  }
 
+});  
 
-  
 
 });
+
+app.post("/",function)
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
