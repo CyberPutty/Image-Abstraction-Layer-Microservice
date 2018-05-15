@@ -51,7 +51,7 @@ if (err) console.log(err);
 
 });
 
-app.post("/addImage/url=:url,title=:title,source=:source",function(request,response){
+app.post("/",function(request,response){
 // create entry
   const add= request.params;
   const date= new Date();
