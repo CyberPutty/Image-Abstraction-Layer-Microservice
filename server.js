@@ -12,7 +12,7 @@ const schema= mongoose.Schema;
 
 
 const imageSchema= new schema({
-image: String,
+imageUrl: String,
 title: String,
 created: Date,
 searched: Date,
@@ -33,12 +33,13 @@ const imageUrl= request.params.image;
  // offset=
 // search=
 // count=? better word for count. 
-Image.findOne(imageUrl,function(err,data){
+Image.find(imageUrl,function(err,data){
 if (err) console.log(err);
   
   if(data){
   // get image
-  data.update({searched: new Date().now});
+//
+  data.update({searched: new Date().now}).limit(20);
   response.json(data);
   }
   else{
@@ -52,7 +53,17 @@ if (err) console.log(err);
 
 app.post("/addImage/url=:url,title=:title,source=:source",function(request,response){
 // create entry
-
+  const add= request.params;
+  const date= new Date();
+ const newImage= new Image({
+imageUrl: add.url,
+title: add.title,
+created: date.now,
+searched: date.now,
+source: add.source 
+ });
+  newImage.save();
+  response.json(newImage); 
 });
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
