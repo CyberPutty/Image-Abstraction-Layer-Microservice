@@ -1,26 +1,19 @@
 
-$(document).ready(function(){
 
 
-var form= $("#image");
-console.log(form);
+let form= document.getElementById("image");
 
-  form.click(function(){ 
-  console.log(form);
-var imageUrl= $('#imageUrl').val();
-  console.log(imageUrl); 
-var title= $('#title').val();
-var source= $('#source').val();
- 
-// $.post("/server.js",{imageUrl: $imageUrl, title: $title, source: $source},function(err,data){
-// if (err) console.log(err);
-//   if (data=="done"){
-//   console.log('success');
-//   }
 
-// });
+  form.addEventListener("click",function(){ 
+
+    
+    let imageUrl= document.getElementById('imageUrl').value;
+    let source= document.getElementById('source').value;
+    let title= document.getElementById('title').value;
+  console.log(document.getElementById('imageUrl').value);
+  fetch('/server.js/',{}).then();
 
 });
 
 
-});
+
