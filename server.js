@@ -24,7 +24,7 @@ source: String,
 const Image= mongoose.model('Image',imageSchema);
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
-app.use(bodyParser.urlEncoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 
@@ -58,17 +58,19 @@ if (err) console.log(err);
 
 app.post("/",function(request,response){
 // create entry
-  const add= request.params;
-  const date= new Date();
- const newImage= new Image({
-imageUrl: add.url,
-title: add.title,
-created: date.now,
-searched: date.now,
-source: add.source 
- });
-  newImage.save();
-  response.json(newImage); 
+//   const add= request.params;
+//   const date= new Date();
+//  const newImage= new Image({
+// imageUrl: add.url,
+// title: add.title,
+// created: date.now,
+// searched: date.now,
+// source: add.source 
+//  });
+  console.log(request);
+  
+  //newImage.save();
+  // response.json(newImage); 
 });
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
