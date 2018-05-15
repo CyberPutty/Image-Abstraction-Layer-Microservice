@@ -71,6 +71,7 @@ app.post("/",function(request,response){
   
   //newImage.save();
   // response.json(newImage); 
+  response.send('sucess');
 });
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
