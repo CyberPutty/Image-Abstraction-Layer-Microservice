@@ -14,6 +14,7 @@ const schema= mongoose.Schema;
 const imageSchema= new schema({
 image: String,
 title: String,
+created: Date,
 searched: Date,
 source: String, 
 });
@@ -27,7 +28,7 @@ app.use(express.static('public'));
 app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
-app.get("/imagesearch/type=:image,offset",function(request,response){
+app.get("/imagesearch/type=:image,offset=:offset",function(request,response){
 const imageUrl= request.params.image;
  // offset=
 // search=
@@ -37,25 +38,22 @@ if (err) console.log(err);
   
   if(data){
   // get image
-  
+  data.update({searched: new Date().now});
+  response.json(data);
   }
-  else {
-// create data
-    
-    const search= new Image({
-    
-    
-    
-    });
-    
+  else{
+    // some status find page not found.
+  response.sendStatus(404);
   }
-
 });  
 
 
 });
 
-app.post("/",function)
+app.post("/addImage/url=:url,title=:title,source=:source",function(request,response){
+// create entry
+
+});
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
