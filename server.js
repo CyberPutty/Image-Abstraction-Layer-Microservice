@@ -67,7 +67,7 @@ app.post("/",function(request,response){
 // searched: date.now,
 // source: add.source 
 //  });
-  console.log(request);
+  console.log(request.body);
   
   //newImage.save();
   // response.json(newImage); 
