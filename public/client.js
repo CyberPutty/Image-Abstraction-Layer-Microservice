@@ -1,19 +1,20 @@
 
 
-const form= document.getElementById("image");
+const $form= $("#image");
 
 
-form.on('submit',function(){ 
+$form.on('click',function(){ 
   
-const imageUrl= document.getElementById('imageUrl');
-const title= document.getElementById('title');
-const source= document.getElmentById('source');
-$.post("/server.js",{imageUrl: imageUrl, title: title, source: source},function(err,data){
-if (err) console.log(err);
-  if (data=="done"){
-  console.log('success');
-  }
+const $imageUrl= $('#imageUrl');
+const $title= $('#title');
+const $source= $('#source');
+ console.log($imageUrl); 
+// $.post("/server.js",{imageUrl: $imageUrl, title: $title, source: $source},function(err,data){
+// if (err) console.log(err);
+//   if (data=="done"){
+//   console.log('success');
+//   }
 
-});
+// });
 
 });
