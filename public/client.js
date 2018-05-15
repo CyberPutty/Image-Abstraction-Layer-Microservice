@@ -10,7 +10,7 @@ let form= document.getElementById("image");
     let imageUrl= document.getElementById('imageUrl').value;
     let source= document.getElementById('source').value;
     let title= document.getElementById('title').value;
-    
+    // set form await form to send to fetch? 
     fetch('https://super-pruner.glitch.me/',{
     method: 'POST',
     body: {imageUrl: imageUrl, title: title, source: source}
@@ -25,6 +25,6 @@ let form= document.getElementById("image");
 
 
 
-function sendForm(){
+function setForm(){
 
 }
