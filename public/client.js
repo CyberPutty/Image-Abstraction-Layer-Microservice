@@ -1,14 +1,17 @@
 
+$(document).ready(function(){
 
-const form= $("#image");
 
+var form= $("#image");
 console.log(form);
-form.click(function(){ 
+
+  form.click(function(){ 
   console.log(form);
-const imageUrl= $('#imageUrl').val();
-const title= $('#title').val();
-const source= $('#source').val();
- console.log(imageUrl); 
+var imageUrl= $('#imageUrl').val();
+  console.log(imageUrl); 
+var title= $('#title').val();
+var source= $('#source').val();
+ 
 // $.post("/server.js",{imageUrl: $imageUrl, title: $title, source: $source},function(err,data){
 // if (err) console.log(err);
 //   if (data=="done"){
@@ -16,5 +19,8 @@ const source= $('#source').val();
 //   }
 
 // });
+
+});
+
 
 });
