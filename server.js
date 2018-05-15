@@ -5,6 +5,7 @@
 var express = require('express');
 var app = express();
 const mongoose= require('mongoose');
+const bodyParser= require('body-parser');
 
 mongoose.connect(process.env.MONGO_URI);
 
@@ -23,6 +24,10 @@ source: String,
 const Image= mongoose.model('Image',imageSchema);
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
+app.use(bodyParser.urlEncoded({extended: false}));
+app.use(bodyParser.json());
+
+
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get("/", function (request, response) {
