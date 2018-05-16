@@ -33,17 +33,16 @@ app.use(bodyParser.json());
 app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
-app.get("/imagesearch/type=:image,offset=:offset",function(request,response){
-const imageUrl= request.params.image;
+app.get("/imagesearch/title=:title",function(request,response){
+const title= request.params.title;
  // offset=
 // search=
 // count=? better word for count. 
-Image.find(imageUrl,function(err,data){
+Image.find(title,function(err,data){
 if (err) console.log(err);
   
   if(data){
   // get image
-//
   data.update({searched: new Date().now}).limit(20);
   response.json(data);
   }
@@ -57,15 +56,20 @@ if (err) console.log(err);
 });
 
 app.post("/",function(request,response){
-// create entry
-//   const add= request.params;
-//   const date= new Date();
-const newImage= new Image(request.body);
+
+  const add= request.body
+  let date= new Date();
+ const newImage= new Image({
+imageUrl: add.imageUrl,
+title: add.title,
+created: date,
+searched: date,
+source: add.source 
+ });
   console.log(request.body);
   
   newImage.save();
-  // response.json(newImage); 
-  response.send('sucess');
+  response.json(newImage); 
 });
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
