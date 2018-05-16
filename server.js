@@ -33,7 +33,7 @@ app.use(bodyParser.json());
 app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
-app.get("/imagesearch/title=:title",function(request,response){
+app.get("/imagesearch/\?title=:title",function(request,response){
 const title= request.params.title;
  // offset=
 // search=
