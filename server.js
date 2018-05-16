@@ -36,8 +36,10 @@ app.get("/", function (request, response) {
 
 // ? optional parameter still retain param assignment?
 
-app.get("/imagesearch/(title=):title?,(offset=:title)?",function(request,response){
-const title= request.params.title;
+app.get("/imagesearch/",function(request,response){
+
+const title= request.query.title;
+const offset= request.query.offset;
  // offset=
 // search=
 // count=? better word for count. 
@@ -46,7 +48,7 @@ if (err) console.log(err);
   
   if(data){
   // get image
-  Image.updateMany({title: { "$regex": title, "$options": "i" }},{searched: new Date()}).limit(20);
+  Image.updateMany({title: { "$regex": title, "$options": "i" }},{searched: new Date()}).limit(offset);
   response.json(data);
   }
   else{
