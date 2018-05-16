@@ -47,12 +47,14 @@ const offset= request.query.offset;
  // offset=
 // search=
 // count=? better word for count. 
-Image.updateMany({title: { "$regex": title, "$options": "i" }},{searched: new Date()}).limit(Number(offset)).exec(function(err,data){
-if (err) console.log(err);
-  
+Image.updateMany({title: { "$regex": title, "$options": "i" }},{searched: new Date()}).limit(Number(offset)).then(function(data){
   if(data){
   // get image
-  response.json(data);
+  Image.find({title: { "$regex": title, "$options": "i" }}).limit(Number(offset)).exec(function(err, data){
+  if (err) console.log(err);
+    response.json(data);
+  
+  });
   }
   else{
     // some status find page not found.
