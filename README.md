@@ -1,27 +1,21 @@
-Welcome to Glitch
+#Image Abstraction Layer API
 =================
 
-Click `Show` in the header to see your app live. Updates to your code will instantly deploy and update live.
+## Example usage:
 
-**Glitch** is the friendly community where you'll build the app of your dreams. Glitch lets you instantly create, remix, edit, and host an app, bot or site, and you can invite collaborators or helpers to simultaneously edit code with you.
+ https://super-pruner.glitch.me/imagesearch/?title=cat&offset=3 https://super-pruner.glitch.me/latest
+## Example Output:
 
-Find out more [about Glitch](https://glitch.com/about).
+**_id** "5afb8acb6b61f20bf660f83b"
 
+**imageUrl** "http://cdn3-www.cattime.com/assets/uploads/gallery"
 
-Your Project
-------------
+**title** "Cat time"
 
-On the front-end,
-- edit `public/client.js`, `public/style.css` and `views/index.html`
-- drag in `assets`, like images or music, to add them to your project
+**created** "2018-05-16T01:35:07.923Z"
 
-On the back-end,
-- your app starts at `server.js`
-- add frameworks and packages in `package.json`
-- safely store app secrets in `.env` (nobody can see this but you and people you invite)
+**searched** "2018-05-16T23:23:45.505Z"
 
+**source** "http://cattime.com/cat-facts/lifestyle/1650-25-fun"
 
-Made by [Fog Creek](https://fogcreek.com/)
--------------------
-
-\ ゜o゜)ノ
+**__v 0**
