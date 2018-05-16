@@ -47,13 +47,11 @@ const offset= request.query.offset;
  // offset=
 // search=
 // count=? better word for count. 
-Image.find({title: { "$regex": title, "$options": "i" }}).limit(Number(offset)).exec(function(err,data){
+Image.updateMany({title: { "$regex": title, "$options": "i" }},{searched: new Date()}).limit(Number(offset)).exec(function(err,data){
 if (err) console.log(err);
   
   if(data){
   // get image
- 
-  Image.updateMany({title: { "$regex": title, "$options": "i" }},{searched: new Date()});
   response.json(data);
   }
   else{
