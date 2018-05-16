@@ -60,16 +60,10 @@ app.post("/",function(request,response){
 // create entry
 //   const add= request.params;
 //   const date= new Date();
-//  const newImage= new Image({
-// imageUrl: add.url,
-// title: add.title,
-// created: date.now,
-// searched: date.now,
-// source: add.source 
-//  });
-  console.log(request.body.title);
+const newImage= new Image(request.body);
+  console.log(request.body);
   
-  //newImage.save();
+  newImage.save();
   // response.json(newImage); 
   response.send('sucess');
 });
