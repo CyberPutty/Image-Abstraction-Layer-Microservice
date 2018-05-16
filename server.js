@@ -66,6 +66,17 @@ Image.updateMany({title: { "$regex": title, "$options": "i" }},{searched: new Da
 
 });
 
+app.get("/latest",function(req,resp){
+
+Image.find({})
+
+
+
+
+
+
+});
+
 app.post("/",function(request,response){
 
   const add= request.body
