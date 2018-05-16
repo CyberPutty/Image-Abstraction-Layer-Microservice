@@ -33,6 +33,9 @@ app.use(bodyParser.json());
 app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
+app.get("/new", function (request, response) {
+  response.sendFile(__dirname + '/views/new.html');
+});
 
 // ? optional parameter still retain param assignment?
 

@@ -1,3 +1,12 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+
+<!-- You might want to try something fancier: -->
+<!-- html/nunjucks docs: https://mozilla.github.io/nunjucks/ -->
+<!-- pug: https://pugjs.org/ -->
+<!-- haml: http://haml.info/ -->
+<!-- hbs(handlebars): http://handlebarsjs.com/ -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,11 +23,16 @@
   
   <body>
   <!-- action is file?-->
-    
+      <div>
+        <input id="imageUrl" type="text" maxlength="100" placeholder="Url">
+        <input id="title" type="text" maxlength="50" placeholder="Url">
+        <input id="source" type="text" maxlength="100" placeholder="Url">      
+        <button id="image">Create Image</button>
+    </div>
       
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- import the webpage's client-side javascript file -->
-   
+    <script src="/client.js"></script>
 
     
   </body>
