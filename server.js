@@ -38,12 +38,12 @@ const title= request.params.title;
  // offset=
 // search=
 // count=? better word for count. 
-Image.find(title,function(err,data){
+Image.find({title: title},function(err,data){
 if (err) console.log(err);
   
   if(data){
   // get image
-  data.update({searched: new Date().now}).limit(20);
+  Image.updateMany({title: title},{searched: new Date().now}).limit(20);
   response.json(data);
   }
   else{
