@@ -40,21 +40,23 @@ app.get("/imagesearch/",function(request,response){
 
 const title= request.query.title;
 const offset= request.query.offset;
+  console.log(offset);
  // offset=
 // search=
 // count=? better word for count. 
-Image.find({title: { "$regex": title, "$options": "i" }},function(err,data){
+Image.find({title: { "$regex": title, "$options": "i" }}).limit(offset).exec(function(err,data){
 if (err) console.log(err);
   
   if(data){
   // get image
-  Image.updateMany({title: { "$regex": title, "$options": "i" }},{searched: new Date()}).limit(offset);
-  response.json(data);
+  Image.updateMany({title: { "$regex": title, "$options": "i" }},{searched: new Date()});
+  response.json(data.limit(offset.n));
   }
   else{
     // some status find page not found.
   response.sendStatus(404);
   }
+  
 });  
 
 
