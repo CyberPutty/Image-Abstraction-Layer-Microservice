@@ -11,7 +11,7 @@ let form= document.getElementById("image");
     let title= document.getElementById('title').value;
     // set form await form to send to fetch? 
     let imageData= {imageUrl: imageUrl, title: title, source: source}
-    
+  
     sendForm(imageData);
       
   console.log(document.getElementById('imageUrl').value);
@@ -20,9 +20,12 @@ let form= document.getElementById("image");
 });
 
 function sendForm(data){
-fetch('https://super-pruner.glitch.me/',{
+  
+    
+  fetch('https://super-pruner.glitch.me/',{
     method: 'POST',
     body: JSON.stringify(data)
-  
   }).then(resp=> console.log("success"));
+  
+
 }

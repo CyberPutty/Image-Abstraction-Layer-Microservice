@@ -5,7 +5,7 @@
 var express = require('express');
 var app = express();
 const mongoose= require('mongoose');
-const 
+const bodyParser= require('body-parser')
 
 mongoose.connect(process.env.MONGO_URI);
 
@@ -67,7 +67,7 @@ app.post("/",function(request,response){
 // searched: date.now,
 // source: add.source 
 //  });
-  console.log(request);
+  console.log(request.body.title);
   
   //newImage.save();
   // response.json(newImage); 
