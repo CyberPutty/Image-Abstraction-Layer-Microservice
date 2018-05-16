@@ -71,25 +71,26 @@ app.get("/latest",function(req,resp){
   
 let max;
     
-Image.find({searched: '/\d+/'},function(err,data){
-  if(err) console.log(err);
-  
-  console.log(data);
-  max= data;
+Image.find({}).sort({searched: "desc"}).limit(1)
+.then(function(imageObject){
+console.log(imageObject);
+
+
+
 });
-  console.log(max);
-  Image.find({searched: max.searched},function(err,data){
-  if (err) console.log(err);
-    
-    if (data){
-    resp.json(data);
-    }
-    else{
-    resp.send("NO DATA");
-    }  
   
-  });
-  console.log();
+//   Image.find({searched: max[0].searched.toString()},function(err,data){
+//   if (err) console.log(err);
+    
+//     if (data){
+//     resp.json(data);
+//     }
+//     else{
+//     resp.send("NO DATA");
+//     }  
+  
+//   });
+//   console.log();
 
 
 
