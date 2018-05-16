@@ -69,7 +69,14 @@ Image.updateMany({title: { "$regex": title, "$options": "i" }},{searched: new Da
 app.get("/latest",function(req,resp){
 
   
-let max= Image.find({}).sort({searched: 'asc'}).limit(1);
+let max;
+    
+Image.find({searched: '/\d+/'},function(err,data){
+  if(err) console.log(err);
+  
+  console.log(data);
+  max= data;
+});
   console.log(max);
   Image.find({searched: max.searched},function(err,data){
   if (err) console.log(err);
