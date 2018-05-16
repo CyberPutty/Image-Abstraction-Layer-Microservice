@@ -69,38 +69,25 @@ Image.updateMany({title: { "$regex": title, "$options": "i" }},{searched: new Da
 app.get("/latest",function(req,resp){
 
   
-let max;
+
     
 Image.find({}).sort({searched: "desc"}).limit(1)
-.then(function(imageObject){
-console.log(imageObject);
-
-
-
-});
-  
-//   Image.find({searched: max[0].searched.toString()},function(err,data){
-//   if (err) console.log(err);
-    
-//     if (data){
-//     resp.json(data);
-//     }
-//     else{
-//     resp.send("NO DATA");
-//     }  
-  
-//   });
-//   console.log();
-
-
-
-
-
+.then(function(max){
+console.log(max);
+  Image.find({searched: max[0].searched},function(err,data){
+if (data){
+    resp.json(data);
+    }
+    else{
+    resp.send("NO DATA");
+    }  
+  });
 
 });
 
-app.post("/",function(request,response){
+});
 
+app.post("/new",function(request,response){
   const add= request.body
   let date= new Date();
  const newImage= new Image({

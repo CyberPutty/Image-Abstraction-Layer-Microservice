@@ -13,7 +13,7 @@ let form= document.getElementById("image");
     if(imageUrl.match(/http(s)?:\/\//)&& source&& title){
     let imageData= {imageUrl: imageUrl, title: title, source: source}
   console.log(imageData);
-    $.post('https://super-pruner.glitch.me/',imageData,function(data){
+    $.post('https://super-pruner.glitch.me/new',imageData,function(data){
     if (data){ console.log("success");}
     });
     
