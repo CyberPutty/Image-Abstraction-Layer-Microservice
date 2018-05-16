@@ -68,7 +68,7 @@ Image.updateMany({title: { "$regex": title, "$options": "i" }},{searched: new Da
 
 app.get("/latest",function(req,resp){
 
-Image.find({})
+  console.log(Image.collection);
 
 
 
