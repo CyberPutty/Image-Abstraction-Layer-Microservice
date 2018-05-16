@@ -33,7 +33,10 @@ app.use(bodyParser.json());
 app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
-app.get("/imagesearch/\?title=:title",function(request,response){
+
+// ? optional parameter still retain param assignment?
+
+app.get("/imagesearch/(title=):title?,(offset=:title)?",function(request,response){
 const title= request.params.title;
  // offset=
 // search=
